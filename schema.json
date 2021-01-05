@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "register": {
+            "description": "Description of one register.",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique id for the value. Used to access this register from code."
+                },
+                "address": {
+                    "type": "number",
+                    "description": "Address of the register in decimal and not hex.",
+                    "minimum": 0,
+                    "maximum": 65535
+                },
+                "datatype": {
+                    "type": "string",
+                    "enum": [
+                        "INT16",
+                        "UINT16",
+                        "INT32",
+                        "UINT32",
+                        "FLOAT",
+                        "DOUBLE",
+                        "STRING"
+                    ],
+                    "description": "Datatype of the value."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Short description of the value."
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Unit of the value."
+                }
+            },
+            "required": [
+                "id",
+                "address",
+                "datatype"
+            ]
+        },
+        "register_array": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/register"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "title": "ModbusMap",
+    "description": "A Map of Modbus registers to human readable descriptions of their values.",
+    "type": "object",
+    "properties": {
+        "input_registers": {
+            "$ref": "#/definitions/register_array"
+        },
+        "holding_registers": {
+            "$ref": "#/definitions/register_array"
+        },
+        "discrete_inputs": {
+            "$ref": "#/definitions/register_array"
+        },
+        "coils": {
+            "$ref": "#/definitions/register_array"
+        }
+    }
+}

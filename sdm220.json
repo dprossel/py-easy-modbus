@@ -1,0 +1,151 @@
+{
+    "input_registers": [
+        {
+            "id": "VOLTAGE",
+            "address": 0,
+            "datatype": "FLOAT",
+            "description": "Line to neutral voltage.",
+            "unit": "Volt"
+        },
+        {
+            "id": "CURRENT",
+            "address": 6,
+            "datatype": "FLOAT",
+            "description": "Current.",
+            "unit": "Ampere"
+        },
+        {
+            "id": "ACTIVE_POWER",
+            "address": 12,
+            "datatype": "FLOAT",
+            "description": "Active power.",
+            "unit": "Watt"
+        },
+        {
+            "id": "APPARENT_POWER",
+            "address": 18,
+            "datatype": "FLOAT",
+            "description": "Apparent power",
+            "unit": "VoltAmpere"
+        },
+        {
+            "id": "REACTIVE_POWER",
+            "address": 24,
+            "datatype": "FLOAT",
+            "description": "Reactive power.",
+            "unit": "VAr"
+        },
+        {
+            "id": "POWER_FACTOR",
+            "address": 30,
+            "datatype": "FLOAT",
+            "description": "Power factor."
+        },
+        {
+            "id": "PHASE_ANGLE",
+            "address": 36,
+            "datatype": "FLOAT",
+            "description": "Phase angle",
+            "unit": "Degree"
+        },
+        {
+            "id": "FREQUENCY",
+            "address": 70,
+            "datatype": "FLOAT",
+            "description": "Line frequency",
+            "unit": "Hertz"
+        },
+        {
+            "id": "IMPORT_ACTIVE_ENERGY",
+            "address": 72,
+            "datatype": "FLOAT",
+            "description": "Import active energy.",
+            "unit": "kwh"
+        },
+        {
+            "id": "EXPORT_ACTIVE_ENERGY",
+            "address": 74,
+            "datatype": "FLOAT",
+            "description": "Export active energy.",
+            "unit": "kwh"
+        },
+        {
+            "id": "IMPORT_REACTIVE_ENERGY",
+            "address": 76,
+            "datatype": "FLOAT",
+            "description": "Import reactive energy.",
+            "unit": "kvarh"
+        },
+        {
+            "id": "EXPORT_REACTIVE_ENERGY",
+            "address": 78,
+            "datatype": "FLOAT",
+            "description": "Export reactive energy.",
+            "unit": "kvarh"
+        },
+        {
+            "id": "TOTAL_ACTIVE_ENERGY",
+            "address": 342,
+            "datatype": "FLOAT",
+            "description": "Total active energy.",
+            "unit": "kwh"
+        },
+        {
+            "id": "TOTAL_REACTIVE_ENERGY",
+            "address": 344,
+            "datatype": "FLOAT",
+            "description": "Total reactive energy",
+            "unit": "kvarh"
+        }
+    ],
+    "holding_registers": [
+        {
+            "id": "RELAY_PULSE_WIDTH",
+            "address": 12,
+            "datatype": "FLOAT",
+            "description": "Write relay on period in Milliseconds: 60, 100 or 200, default 100ms."
+        },
+        {
+            "id": "NETWORK_PARITY_STOP",
+            "address": 18,
+            "datatype": "FLOAT",
+            "description": "Write the network port parity/stop bits for MODBUS Protocol, where:\\n0 = One stop bit and no parity, default.\\n1 = One stop bit and even parity.\\n2 = One stop bit and odd parity.\\n3 = Two stop bits and no parity.\\nRequires a restart to become effective."
+        },
+        {
+            "id": "NETWORK_PORT_NODE",
+            "address": 20,
+            "datatype": "FLOAT",
+            "description": "Write the network port node. Address: 1 to 247 for MODBUS Protocol, default 1."
+        },
+        {
+            "id": "NETWORK_BAUD_RATE",
+            "address": 28,
+            "datatype": "FLOAT",
+            "description": "Write the network port baud rate for MODBUS Protocol, where:\\n0 = 2400 bps.\\n1 = 4800 bps.\\n2 = 9600 bps( default)\\n5=1200 bps\\nRequires a restart to become effective."
+        },
+        {
+            "id": "PULSE1_OUTPUT",
+            "address": 86,
+            "datatype": "FLOAT",
+            "description": "0001: Import active energy.\\n0002: Import + export active energy.\\n0004:Export active energy, (default).\\n0005: Import reactive energy.\\n0006: Import + export reactive energy.\\n0008: Export reactive energy."
+        },
+        {
+            "id": "DISPLAY",
+            "address": 62720,
+            "datatype": "UINT32",
+            "description": "Data Format BCD: min-min-s-min (e.g.: 10-01-00-60)\\n(demand interval)-(slide time)-(scroll time)-(backlight time)\\nscroll time=0: The display does not scroll automatically.\\nBacklight time=0: Backlight always on."
+        },
+        {
+            "id": "PULSE1_CONSTANT",
+            "address": 63760,
+            "datatype": "UINT16",
+            "description": "0000: 0.001kwh(kvarh)/imp(default)\\n0001: 0.01kwh(kvarh)/imp\\n0002: 0.1kwh(kvarh)/imp\\n0003: 1kwh(kvarh)/imp"
+        },
+        {
+            "id": "MEASUREMENT_MODE",
+            "address": 63775,
+            "datatype": "UINT16",
+            "description": "0001:mode 1(total = import)\\n0002:mode 2(total = import + export), default\\n0003:mode 3 (total = import - export)"
+        }
+    ]
+}
